@@ -1,1 +1,12 @@
+# Core libraries
+matplotlib==3.7.1      # For visualization of cracking times
+
+# Networking and cryptography libraries
+scapy==2.4.5           # For network packet crafting and analysis, if needed for further simulation
+bcrypt==4.0.1          # For generating and testing bcrypt hashed passwords
+hashlib                # Included in Python standard library; no need to install separately
+
+# Password cracking tools integration
+hashcat                # Note: Hashcat isn’t a Python package, so install separately on your OS
+john-the-ripper        # Note: John the Ripper isn’t a Python package; install separately
 
