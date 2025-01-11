@@ -34,7 +34,24 @@ The **Password Cracking Simulation** project demonstrates the process of crackin
    pip install -r requirements.txt
    ```
 
-3. **John the Ripper Configuration**
+3. **Install External Tools**
+   The following tools are used for password cracking and must be installed separately:
+
+   - **[John the Ripper](https://www.openwall.com/john/)**: A popular password cracking tool for dictionary attacks.
+     - **Installation**: Follow the instructions on the John the Ripper website for your operating system (Windows, Linux, macOS).
+     - After installation, you can verify the installation by running:
+       ```bash
+       john --version
+       ```
+
+   - **[Hashcat](https://hashcat.net/hashcat/)** (Optional): A powerful password cracking tool for high-speed cracking.
+     - **Installation**: Follow the instructions on the Hashcat website for your operating system.
+     - After installation, you can verify the installation by running:
+       ```bash
+       hashcat --version
+       ```
+
+4. **John the Ripper Configuration**
    The `john.conf` file is used to configure **John the Ripper** for different password cracking strategies:
    - **Incremental Mode**: A brute-force mode with customizable length and character set.
    - **Wordlist Mode**: Cracking passwords using a list of known words.
@@ -62,5 +79,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **John the Ripper**: A fast and flexible password cracking tool used in the dictionary attack simulation.
 - **Python**: Used for implementing the brute-force attack and visualizing cracking times.
 - **Other Libraries**: If any third-party libraries were used for the visualizations or other parts of the project, mention them here.
+- **Hashcat**: Optional, used for advanced cracking scenarios.
 
 ---
