@@ -30,11 +30,19 @@ def simulate_cracking_time(character_set, password_length):
 
 def visualize_cracking_times():
     """Visualize the time taken to crack passwords of various lengths and complexities."""
-    lengths = range(1, 6)  # Test password lengths from 1 to 5
+    # Allow user to customize the range of lengths
+    min_length = int(input("Enter minimum password length: "))
+    max_length = int(input("Enter maximum password length: "))
+    lengths = range(min_length, max_length + 1)
+    
     results = {complexity: [] for complexity in CHARACTER_SETS.keys()}
 
     for complexity, character_set in CHARACTER_SETS.items():
         for length in lengths:
+            # Warn about long passwords
+            if length > 6:
+                print(f"Warning: Cracking passwords longer than 6 characters may take a long time.")
+            
             cracking_time, attempts = simulate_cracking_time(character_set, length)
             results[complexity].append(cracking_time)
             print(f"Complexity: {complexity}, Length: {length}, Time: {cracking_time:.4f} s, Attempts: {attempts}")
@@ -47,10 +55,10 @@ def visualize_cracking_times():
     plt.xlabel("Password Length")
     plt.ylabel("Cracking Time (seconds)")
     plt.title("Brute-Force Cracking Time vs Password Length and Complexity")
+    plt.yscale('log')  # Logarithmic scale for better visualization
     plt.legend()
     plt.grid(True)
     plt.show()
 
 if __name__ == "__main__":
     visualize_cracking_times()
-
